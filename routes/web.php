@@ -12,7 +12,7 @@
 */
 
 Route::namespace('Web')->group(function (){
-    Route::get('/','AppController@getApp')->middleware('auth');
+    Route::get('/','AppController@getApp');
     Route::get('/login','AppController@getLogin')->name('login')->middleware('guest');
 
     Route::get('/auth/{social}','AuthenticationController@getSocialRedirect')->middleware('guest');

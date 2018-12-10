@@ -13,8 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['prefix'=>'v1','middleware'=>'auth:api'],function (){
+Route::group(['prefix'=>'v1','namespace'=>'Api','middleware'=>'auth:api'],function (){
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    Route::get('/cafes','CafesController@getCafes');
+    Route::post('/cafes','CafesController@postNewCafe');
+    Route::get('/cafe/{id}','CafesController@getCafe');
 });
